@@ -1,0 +1,7 @@
+{
+  "name": "clear-input-test",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
