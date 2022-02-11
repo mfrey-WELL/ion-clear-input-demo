@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { DataService, Message } from '../services/data.service';
+import {Component} from '@angular/core';
+import {FormArray, FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-home',
@@ -7,16 +7,11 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private data: DataService) {}
+  formArray: FormArray = new FormArray([]);
 
-  refresh(ev) {
-    setTimeout(() => {
-      ev.detail.complete();
-    }, 3000);
+  constructor() {
+    for (let i = 0; i < 50; i++) {
+      this.formArray.push(new FormControl('my text value'));
+    }
   }
-
-  getMessages(): Message[] {
-    return this.data.getMessages();
-  }
-
 }
